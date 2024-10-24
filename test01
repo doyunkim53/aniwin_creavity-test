@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미술 적성 검사</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>미술 적성 검사</h1>
+
+<div class="question">
+    <h3>1. 주어진 상황에서 여러 아이디어를 쉽게 떠올릴 수 있나요?</h3>
+    <label><input type="radio" name="q1" value="always"> 항상</label><br>
+    <label><input type="radio" name="q1" value="often"> 종종</label><br>
+    <label><input type="radio" name="q1" value="sometimes"> 가끔</label><br>
+    <label><input type="radio" name="q1" value="rarely"> 거의 어려움</label>
+</div>
+
+<div class="question">
+    <h3>2. 당신은 색상 선택에 있어서 직관적인 느낌을 많이 따르나요?</h3>
+    <label><input type="radio" name="q2" value="always"> 항상</label><br>
+    <label><input type="radio" name="q2" value="often"> 종종</label><br>
+    <label><input type="radio" name="q2" value="sometimes"> 가끔</label><br>
+    <label><input type="radio" name="q2" value="rarely"> 거의 어려움</label>
+</div>
+
+<!-- 추가 질문들도 동일하게 구성 -->
+
+<button onclick="calculateResult()">결과 확인</button>
+
+<script>
+    function calculateResult() {
+        var q1 = document.querySelector('input[name="q1"]:checked');
+        var q2 = document.querySelector('input[name="q2"]:checked');
+
+        if (!q1 || !q2) {
+            alert("모든 질문에 답해주세요.");
+            return;
+        }
+
+        var resultText = "테스트 결과: \n";
+        resultText += "아이디어 떠올리기: " + q1.value + "\n";
+        resultText += "색상 선택: " + q2.value;
+
+        alert(resultText);
+    }
+</script>
+
+</body>
+</html>
